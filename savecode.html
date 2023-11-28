@@ -1,0 +1,19 @@
+<div class="row justify-content-center">
+  <?php
+      $result = mysqli_query($conn, "SELECT * FROM `destinasi`");
+      while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+      {
+    ?>
+  <div class="col-md-3 mb-3">
+    <div class="card mb-3">
+      <img src="./img/<?php echo $row['gambar_destinasi'];?>" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $row['nama_destinasi'];?></h5>
+        <p class="card-text"><?php echo $row['isi_destinasi'];?></p>
+      </div>
+    </div>
+  </div>
+  <?php
+      }
+    ?>
+</div>
