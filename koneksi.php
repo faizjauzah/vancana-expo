@@ -2,7 +2,7 @@
 $servernameku = "localhost";
 $username = "root";
 $dbname = "explorejogja";
-$password = "";
+$password = "22523262";
 
 // Create connection
 $conn = mysqli_connect($servernameku, $username, $password, $dbname);
