@@ -15,6 +15,7 @@ include "koneksi.php";
     <link rel="stylesheet" href="owl.theme.carousel.default.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script defer src="app.js"></script>
   </head>
   <body>
     <!-- navbar mulai -->
@@ -56,14 +57,38 @@ include "koneksi.php";
 
     <!-- jumbotron mulai -->
     <section id="home" class="jumbotron">
+      <div class="d-flex container-fluid" lc-helper="background" style="height:75vh;background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url(./img/prambanan.jpg);background-position: center;background-repeat: no-repeat;background-size: cover; border-radius: 0px 0px 25px 25px;"></div>
 
-      <div class="px-4 py-5 my-5 text-center">
-        <h1 class="display-5 fw-bold">Explore Jogja!</h1>
-        <div class="col-lg-6 mx-auto">
-          <p class="lead mb-4">Rencanakan liburanmu ke Yogyakarta bersama kami!</p>
+      
+      <div class="container p-5 bg-hero" onclick="location.href='#destinasi';">
+        <div class="row">
+          <div class="col-md-4 text-center align-self-center">
+            <div class="lc-block border-end border-2">
+              <div editable="rich">
+                <p class="display-5 text-secondary">VANCANA</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8 text-center align-self-center">
+            <div class="lc-block">
+              <div editable="rich">
+                <p class="display-5 fw-bold">Explore Jogja!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-9 offset-md-1">
+            <div class="lc-block mt-5">
+              <div editable="rich">
+                <p class="lead">Selamat datang di Jogja, pusat keajaiban yang menunggu untuk dijelajahi!</p>
+                <p class="lead">Temukan perjalanan terbaik untuk pengalaman yang tak terlupakan.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
+      
       
     </section>
     
@@ -71,8 +96,8 @@ include "koneksi.php";
 
 
     <!-- rekomendasi destinasi mulai -->
-    <section id="destinasi" class="destinasi">
-      <div class="container">
+    <section id="destinasi" class="destinasi ">
+      <div class="container ">
         <div class="row text-center mb-3">
           <div class="col">
             <h2>Rekomendasi Destinasi Wisata di Jogja</h2>
@@ -99,7 +124,7 @@ include "koneksi.php";
             </div>
             
 
-            <div class="carousel-inner">
+            <div class="carousel-inner hidden">
 
               <?php
                 $result = mysqli_query($conn, "SELECT * FROM `destinasi`");
@@ -118,7 +143,7 @@ include "koneksi.php";
                     ?>
                       <div class="col-md-3 mb-3">
                         <div class="card mb-3 shadow-sm">
-                          <img src="./img/<?php echo $row['gambar_destinasi']; ?>" class="card-img-top" alt="..." style="height: 200px;"/>
+                          <img src="./img/<?php echo $row['gambar_destinasi']; ?>" class="card-img-top" alt="..." style="height: 200px; "/>
                           <div class="card-body">
                             <h5 class="card-title"><?php echo $row['nama_destinasi']; ?></h5>
                             <p class="card-text mb-0">
@@ -193,7 +218,7 @@ include "koneksi.php";
             </div>
             
 
-            <div class="carousel-inner">
+            <div class="carousel-inner hidden">
 
               <?php
                 $result = mysqli_query($conn, "SELECT * FROM `kuliner`");
@@ -245,7 +270,7 @@ include "koneksi.php";
 
     <!-- rekomendasi hotel mulai -->
     <section class="hotel" id="hotel">
-      <div class="row text-center mb-3">
+      <div class="row text-center mb-3 ">
         <div class="col">
           <h2>Rekomendasi Hotel di Jogja</h2>
         </div>
@@ -264,104 +289,206 @@ include "koneksi.php";
             </div>
           </div>
           <div class="row justify-content-center">
-            <?php
-              $result = mysqli_query($conn, "SELECT * FROM `hotel` WHERE bintang_hotel = 'Bintang 5'");
-              while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-              {
-            ?>
-            <div class="col-md-3 mb-3">
-              <div class="card">
-                <img src="./img/<?php echo $row['gambar_hotel'];?>" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title"><?php echo $row['nama_hotel'];?></h5>
-                  <p class="card-text"><?php echo $row['isi_hotel'];?></p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item fw-bold"><?php echo $row['bintang_hotel'];?></li>
-                  <li class="list-group-item">Harga mulai dari <span class="fw-bold"><?php echo $row['harga_hotel'];?></span></li>
-                </ul>
-                <div class="card-body">
-                  <a href="<?php echo $row['link_hotel'];?>" class="card-link">Pesan hotel ini.</a>
-                </div>
+              
+            <div id="cardCarouselHotel5" class="carousel slide" data-ride="carousel">
+              
+              <!-- Custom Navigation Buttons -->
+              <div class="mb-3 d-grid gap-2 d-md-flex justify-content-md-center" >
+                <button class="btn btn-primary" type="button" data-bs-target="#cardCarouselHotel5" data-bs-slide="prev">
+                  Prev
+                </button>
+                <button class="btn btn-primary" type="button" data-bs-target="#cardCarouselHotel5" data-bs-slide="next">
+                  Next
+                </button>
               </div>
+              
+
+              <div class="carousel-inner hidden">
+
+                <?php
+                  $result = mysqli_query($conn, "SELECT * FROM `hotel`  WHERE bintang_hotel = 'Bintang 5'");
+                  $numCards = mysqli_num_rows($result);
+
+                  // Calculate the number of slides needed
+                  $numSlides = ceil($numCards / 3);
+                  for ($i = 0; $i < $numSlides; $i++) {
+                ?>
+                  
+                  <div class="carousel-item <?php echo $i === 0 ? 'active' : ''; ?>">
+                    <div class="row justify-content-center">
+                      <?php
+                      for ($j = 0; $j < 3 && $row = mysqli_fetch_array($result, MYSQLI_ASSOC); $j++) {
+                      ?>
+                        <div class="col-md-3 mb-3">
+                          <div class="card">
+                            <img src="./img/<?php echo $row['gambar_hotel'];?>" class="card-img-top" alt="..." style="height: 200px;"/>
+                            <div class="card-body">
+                              <h5 class="card-title"><?php echo $row['nama_hotel'];?></h5>
+                              <p class="card-text"><?php echo $row['isi_hotel'];?></p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                              <li class="list-group-item fw-bold"><?php echo $row['bintang_hotel'];?></li>
+                              <li class="list-group-item">Harga mulai dari <span class="fw-bold"><?php echo $row['harga_hotel'];?></span></li>
+                            </ul>
+                            <div class="card-body">
+                              <a href="<?php echo $row['link_hotel'];?>" class="card-link">Pesan hotel ini.</a>
+                            </div>
+                          </div>
+                        </div>
+                      <?php
+                      }
+                      ?>
+                    </div>
+                  </div>
+                <?php
+                }
+                ?>
+
+              </div>
+
             </div>
-            <?php
-              }
-            ?>
+
+
+
+          
           </div>
         </div>
       </section>
 
       <section id="bintang4">
-        <div class="container">
+        <div class="container ">
           <div class="row text-center mb-3 mt-5">
             <div class="col">
               <h3>Rekomendasi Hotel Bintang 4</h3>
             </div>
           </div>
           <div class="row justify-content-center">
-            <?php
-              $result = mysqli_query($conn, "SELECT * FROM `hotel` WHERE bintang_hotel = 'Bintang 4'");
-              while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-              {
-            ?>
-            <div class="col-md-3 mb-3">
-              <div class="card">
-                <img src="./img/<?php echo $row['gambar_hotel'];?>" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title"><?php echo $row['nama_hotel'];?></h5>
-                  <p class="card-text"><?php echo $row['isi_hotel'];?></p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item fw-bold"><?php echo $row['bintang_hotel'];?></li>
-                  <li class="list-group-item">Harga mulai dari <span class="fw-bold"><?php echo $row['harga_hotel'];?></span></li>
-                </ul>
-                <div class="card-body">
-                  <a href="<?php echo $row['link_hotel'];?>" class="card-link">Pesan hotel ini.</a>
-                </div>
+            <div id="cardCarouselHotel4" class="carousel slide" data-ride="carousel">
+              
+              <!-- Custom Navigation Buttons -->
+              <div class="mb-3 d-grid gap-2 d-md-flex justify-content-md-center" >
+                <button class="btn btn-primary" type="button" data-bs-target="#cardCarouselHotel4" data-bs-slide="prev">
+                  Prev
+                </button>
+                <button class="btn btn-primary" type="button" data-bs-target="#cardCarouselHotel4" data-bs-slide="next">
+                  Next
+                </button>
               </div>
+              
+
+              <div class="carousel-inner hidden">
+
+                <?php
+                  $result = mysqli_query($conn, "SELECT * FROM `hotel`  WHERE bintang_hotel = 'Bintang 4'");
+                  $numCards = mysqli_num_rows($result);
+
+                  // Calculate the number of slides needed
+                  $numSlides = ceil($numCards / 3);
+                  for ($i = 0; $i < $numSlides; $i++) {
+                ?>
+                  
+                  <div class="carousel-item <?php echo $i === 0 ? 'active' : ''; ?>">
+                    <div class="row justify-content-center">
+                      <?php
+                      for ($j = 0; $j < 3 && $row = mysqli_fetch_array($result, MYSQLI_ASSOC); $j++) {
+                      ?>
+                        <div class="col-md-3 mb-3">
+                          <div class="card">
+                            <img src="./img/<?php echo $row['gambar_hotel'];?>" class="card-img-top" alt="..." style="height: 200px;"/>
+                            <div class="card-body">
+                              <h5 class="card-title"><?php echo $row['nama_hotel'];?></h5>
+                              <p class="card-text"><?php echo $row['isi_hotel'];?></p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                              <li class="list-group-item fw-bold"><?php echo $row['bintang_hotel'];?></li>
+                              <li class="list-group-item">Harga mulai dari <span class="fw-bold"><?php echo $row['harga_hotel'];?></span></li>
+                            </ul>
+                            <div class="card-body">
+                              <a href="<?php echo $row['link_hotel'];?>" class="card-link">Pesan hotel ini.</a>
+                            </div>
+                          </div>
+                        </div>
+                      <?php
+                      }
+                      ?>
+                    </div>
+                  </div>
+                <?php
+                }
+                ?>
+
+              </div>
+
             </div>
-            <?php
-              }
-            ?>
           </div>
         </div>
       </section>
 
       <section id="bintang3">
-        <div class="container">
+        <div class="container ">
           <div class="row text-center mb-3 mt-5">
             <div class="col">
               <h3>Rekomendasi Hotel Bintang 3</h3>
             </div>
           </div>
           <div class="row justify-content-center">
-          <?php
-              $result = mysqli_query($conn, "SELECT * FROM `hotel` WHERE bintang_hotel = 'Bintang 3'");
-              while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-              {
-            ?>
-            <div class="col-md-3 mb-3">
-              <div class="card">
-                <img src="./img/<?php echo $row['gambar_hotel'];?>" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title"><?php echo $row['nama_hotel'];?></h5>
-                  <p class="card-text">
-                    <?php echo $row['isi_hotel'];?>
-                  </p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item fw-bold"><?php echo $row['bintang_hotel'];?></li>
-                  <li class="list-group-item">Harga mulai dari <span class="fw-bold"><?php echo $row['harga_hotel'];?></span></li>
-                </ul>
-                <div class="card-body">
-                  <a href="<?php echo $row['link_hotel'];?>" class="card-link">Pesan hotel ini.</a>
-                </div>
+          <div id="cardCarouselHotel3" class="carousel slide" data-ride="carousel">
+              
+              <!-- Custom Navigation Buttons -->
+              <div class="mb-3 d-grid gap-2 d-md-flex justify-content-md-center" >
+                <button class="btn btn-primary" type="button" data-bs-target="#cardCarouselHotel3" data-bs-slide="prev">
+                  Prev
+                </button>
+                <button class="btn btn-primary" type="button" data-bs-target="#cardCarouselHotel3" data-bs-slide="next">
+                  Next
+                </button>
               </div>
+              
+
+              <div class="carousel-inner hidden">
+
+                <?php
+                  $result = mysqli_query($conn, "SELECT * FROM `hotel`  WHERE bintang_hotel = 'Bintang 3'");
+                  $numCards = mysqli_num_rows($result);
+
+                  // Calculate the number of slides needed
+                  $numSlides = ceil($numCards / 3);
+                  for ($i = 0; $i < $numSlides; $i++) {
+                ?>
+                  
+                  <div class="carousel-item <?php echo $i === 0 ? 'active' : ''; ?>">
+                    <div class="row justify-content-center">
+                      <?php
+                      for ($j = 0; $j < 3 && $row = mysqli_fetch_array($result, MYSQLI_ASSOC); $j++) {
+                      ?>
+                        <div class="col-md-3 mb-3">
+                          <div class="card">
+                            <img src="./img/<?php echo $row['gambar_hotel'];?>" class="card-img-top" alt="..." style="height: 200px;"/>
+                            <div class="card-body">
+                              <h5 class="card-title"><?php echo $row['nama_hotel'];?></h5>
+                              <p class="card-text"><?php echo $row['isi_hotel'];?></p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                              <li class="list-group-item fw-bold"><?php echo $row['bintang_hotel'];?></li>
+                              <li class="list-group-item">Harga mulai dari <span class="fw-bold"><?php echo $row['harga_hotel'];?></span></li>
+                            </ul>
+                            <div class="card-body">
+                              <a href="<?php echo $row['link_hotel'];?>" class="card-link">Pesan hotel ini.</a>
+                            </div>
+                          </div>
+                        </div>
+                      <?php
+                      }
+                      ?>
+                    </div>
+                  </div>
+                <?php
+                }
+                ?>
+
+              </div>
+
             </div>
-            <?php
-              }
-            ?>
           </div>
         </div>
       </section>
