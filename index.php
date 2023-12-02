@@ -65,7 +65,7 @@ include "koneksi.php";
           <div class="col-md-4 text-center align-self-center">
             <div class="lc-block border-end border-2">
               <div editable="rich">
-                <p class="display-5 text-secondary">SJK</p>
+                <p class="display-5 text-secondary">VANCANA</p>
               </div>
             </div>
           </div>
