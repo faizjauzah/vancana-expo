@@ -21,7 +21,18 @@ include "header.php";
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
+    <div class="col-lg-3 col-xs-6">
+      <a href="./add_hotel.php" class="small-box-footer">
+        <div class="small-box bg-green">
+          <div class="inner">
+              <H5>Tambah Hotel <i class="fa fa-arrow-circle-right"></i></H5>
+              <!-- <div class="icon">
+            <i class="fa fa-plus circle"></i>
+          </div> -->
+          </div>
+        </div>
+      </a>
+    </div>
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -59,20 +70,34 @@ include "header.php";
                     $results = mysqli_query($conn, "SELECT * FROM hotel ORDER BY id_hotel DESC");
                     while($rows = mysqli_fetch_array($results, MYSQLI_ASSOC))
                     {
+                      if (strlen($rows['isi_hotel']) > 50){
+                        $str = substr($rows['isi_hotel'], 0, 46) . '...';
+                      }
+                      else {
+                        $str = $rows['isi_hotel'];
+                      }
+
+                      if (strlen($rows['link_hotel']) > 50){
+                        $str2 = substr($rows['link_hotel'], 0, 46) . '...';
+                      }
+                      else {
+                        $str2 = $rows['link_hotel'];
+                      }
                     ?>
                                <tr>
                                  <td><?php echo $nomor; ?></td>
                                  <td><?php echo $rows['nama_hotel'];?></td>
                                  <td><?php echo $rows['gambar_hotel'];?></td>
-                                 <td><?php echo $rows['isi_hotel'];?></td>
+                                 <td><?php echo $str; ?></td>
                                  <td><?php echo $rows['bintang_hotel'];?></td>
                                  <td><?php echo $rows['harga_hotel'];?></td>
-                                 <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">
-                                    <div style="width: 100%; word-wrap: break-word;"><?php echo $rows['link_hotel'];?></div>
-                                 </td>
+                                 <td><?php echo $str2; ?></td>
 
                   
-                                 <td><a style="color: white;"href=""><button class="btn btn-primary btn-sm">Edit</button></a></td>
+                                 <td>
+                                  <a style="color: white;"href="update_hotel.php?id=<?php echo $rows['id_hotel'];?>"><button class="btn btn-primary btn-sm">Edit</button></a>
+                                  <a style="color: white;"href="proses_hapus_hotel.php?id=<?php echo $rows['id_hotel'];?>" ><button class="btn btn-danger btn-sm btn-delete-row">Delete</button></a>                                    
+                                </td>
                                </tr>
                     <?php
                     $nomor = $nomor+1;
@@ -141,7 +166,11 @@ include "header.php";
          "scrollX": false,
          "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-
+    $("body").on("click", ".btn-delete-row", function(e){
+              if (confirm("Apakah anda yakin ingin menghapus?") === false) {
+                e.preventDefault();
+              }
+            });
   });
 </script>
 </body>

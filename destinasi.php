@@ -21,7 +21,18 @@ include "header.php";
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
+    <div class="col-lg-3 col-xs-6">
+      <a href="./add_destinasi.php" class="small-box-footer">
+        <div class="small-box bg-green">
+          <div class="inner">
+              <H5>Tambah Destinasi <i class="fa fa-arrow-circle-right"></i></H5>
+              <!-- <div class="icon">
+            <i class="fa fa-plus circle"></i>
+          </div> -->
+          </div>
+        </div>
+      </a>
+    </div>
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -56,14 +67,23 @@ include "header.php";
                     $results = mysqli_query($conn, "SELECT * FROM destinasi ORDER BY id_destinasi DESC");
                     while($rows = mysqli_fetch_array($results, MYSQLI_ASSOC))
                     {
+                      if (strlen($rows['isi_destinasi']) > 50){
+                        $str = substr($rows['isi_destinasi'], 0, 46) . '...';
+                      }
+                      else {
+                        $str = $rows['isi_destinasi'];
+                      }
                     ?>
                                <tr>
                                  <td><?php echo $nomor; ?></td>
                                  <td><?php echo $rows['nama_destinasi'];?></td>
                                  <td><?php echo $rows['gambar_destinasi'];?></td>
-                                 <td><?php echo $rows['isi_destinasi'];?></td>
+                                 <td><?php echo $str; ?></td>
                   
-                                 <td><a style="color: white;"href=""><button class="btn btn-primary btn-sm">Edit</button></a></td>
+                                 <td>
+                                    <a style="color: white;"href="update_destinasi.php?id=<?php echo $rows['id_destinasi'];?>"><button class="btn btn-primary btn-sm">Edit</button></a>
+                                    <a style="color: white;"href="proses_hapus_destinasi.php?id=<?php echo $rows['id_destinasi'];?>" ><button class="btn btn-danger btn-sm btn-delete-row">Delete</button></a>                                    
+                                </td>
                                </tr>
                     <?php
                     $nomor = $nomor+1;
@@ -132,7 +152,11 @@ include "header.php";
          "scrollX": false,
          "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-
+    $("body").on("click", ".btn-delete-row", function(e){
+              if (confirm("Apakah anda yakin ingin menghapus?") === false) {
+                e.preventDefault();
+              }
+            });
   });
 </script>
 </body>

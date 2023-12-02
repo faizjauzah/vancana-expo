@@ -85,24 +85,7 @@ include "header.php";
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-              <?php
-                $query = mysqli_query($conn, "SELECT COUNT(id_admin)  as jumlah FROM admin");
-                $dataadmin = mysqli_fetch_array($query, MYSQLI_ASSOC);
-                ?>
-                <h3><?php echo $dataadmin['jumlah'];?></h3>
-
-                <p>Jumlah Akun</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="akun.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
+          
           <!-- ./col -->
         </div>
         <!-- /.row -->
