@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+  <?php
+      $result = mysqli_query($conn, "SELECT * FROM `destinasi`");
+      while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+      {
+    ?>
+  <div class="col-md-3 mb-3">
+    <div class="card mb-3">
+      <img src="./img/<?php echo $row['gambar_destinasi'];?>" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $row['nama_destinasi'];?></h5>
+        <p class="card-text"><?php echo $row['isi_destinasi'];?></p>
+      </div>
+    </div>
+  </div>
+  <?php
+      }
+    ?>
+</div>
+
+.jumbotron { padding-top: 12rem; padding-bottom: 18rem; background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url(./img/prambanan.jpg); color: #fff; height: 100%; background-position: center; background-repeat: no-repeat;
+background-size: cover; }
+
+<section id="home" class="jumbotron">
+  <div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Explore Jogja!</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Rencanakan liburanmu ke Yogyakarta bersama kami!</p>
+    </div>
+  </div>
+</section>
+
+-webkit-filter: blur(2px); filter: blur(2px); background-color: rgba(255,255,255,.3);
