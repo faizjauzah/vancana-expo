@@ -4,49 +4,22 @@ html {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
-  scroll-snap-type: y mandatory;
 }
 
-section {
-  height: 100vh;
-  scroll-snap-align: center;
-  scroll-margin-top: 15vh;
-}
-#home {
-  scroll-snap-align: start;
-}
-footer {
-  scroll-snap-align: start;
-}
-.hero {
-  margin-top: 15rem;
-}
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-.dropdown > .dropdown-stick:active {
-  /*Without this, clicking will make it sticky*/
-  pointer-events: none;
-}
 #navbar {
   transition: background-color 0.3s ease;
 }
 
 #kuliner {
-  background-color: #fafafa;
+  background-color: #f7f7f7;
 }
 
 .background-footer {
   background-color: #fafafa;
 }
-nav .nav-item {
+.nav-item {
   margin-left: 1rem;
   margin-right: 1rem;
-}
-.btn-explore {
-  animation: popOut 1s ease-in-out;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
 }
 
 .hotel {
@@ -84,7 +57,7 @@ nav .nav-item {
 }
 
 .bg-hero:hover {
-  transform: translateY(-30px);
+  transform: translateY(-2rem);
 }
 
 .destinasi {
@@ -102,33 +75,17 @@ nav .nav-item {
   align-items: center;
 }
 
-.tombol-transisi {
-  transition: transform 0.3s;
-}
-.tombol-transisi:hover {
-  transform: scale(0.9);
-}
-
 .carousel-inner {
   overflow: hidden; /* Hide overflow content */
 }
 
-@keyframes slideAnimation {
-  0% {
-    transform: translateX(-10%);
-  }
-  100% {
-    transform: translateX(10%);
-  }
-}
-
-@keyframes popOut {
+@keyframes slideInBottom {
   from {
-    transform: scale(90%);
+    transform: translateY(100%);
   }
 
   to {
-    transform: scale(100%);
+    transform: translateY(0);
   }
 }
 
