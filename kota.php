@@ -104,7 +104,7 @@ include "koneksi.php";
       <div class="d-flex container-fluid" lc-helper="background" style="height:75vh;background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.3)), url(./img/tugu.jpg);background-position: center;background-repeat: no-repeat;background-size:cover; border-radius: 0px 0px 25px 25px;"></div>
 
       
-      <div class="container p-5 bg-hero" onclick="location.href='#destinasi';">
+      <div class="container p-5 bg-hero shadow" onclick="location.href='#destinasi';">
         <div class="row">
           <div class="col-md-6 text-center align-self-center">
             <div class="lc-block">
@@ -604,7 +604,7 @@ include "koneksi.php";
           if (scrollPosition > 100) {
             navbar.style.backgroundColor = 'rgba(255,255,255,1)'; // Change this to your desired background color
           } else {
-            navbar.style.backgroundColor = 'rgba(255,255,255,.3)';
+            navbar.style.backgroundColor = 'rgba(255,255,255,.5)';
           }
         });
       });

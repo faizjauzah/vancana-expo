@@ -8,9 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </head>
 
-  <body>
+  <body class="d-flex align-items-center" style="height: 100vh;">
     <div class="container">
-      <div class="row text-center mb-3 pt-5">
+      <div class="row text-center mb-3">
         <div class="col">
           <h2>Login</h2>
         </div>

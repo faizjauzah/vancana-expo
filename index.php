@@ -139,25 +139,26 @@ include "koneksi.php";
     <!-- hero selesai -->
 
     <!-- jumbotron mulai -->
-    <section id="jumbotron">
+    <section id="jumbotron">  
       <div class="p-5 text-center bg-body-tertiary">
+      <img src="img/undraw_exams_re_4ios.svg" style="height: 30vh; margin-left:auto; margin-right:auto; display:block;" loading="lazy">
         <div class="container py-5">
-          <h1 class="display-5 fw-bold text-body-emphasis lh-1 my-3 py-3">Sulit merencanakan liburanmu ke Jogja?</h1>
+          <h1 class="display-5 text-body-emphasis lh-1">Sulit Merencanakan Liburanmu ke Jogja?</h1>
+          <h1 class="display-3 fw-bold text-body-emphasis lh-1 my-3 py-3 text-primary"><i>Jangan Khawatir!</i></h1>
           <p class="col-lg-8 mx-auto lead">
-            Jangan khawatir! Kami hadir untuk membuat liburanmu di Jogja menjadi tak terlupakan. Temukan pesona kota budaya ini dengan panduan eksklusif kami, mulai dari destinasi wisata ikonik hingga kuliner lezat. Nikmati setiap momen tanpa kerumitan perencanaan. Jadikan liburanmu di Jogja sempurna bersama kami!
+            Kami hadir untuk membuat liburanmu di Jogja menjadi tak terlupakan. Temukan pesona kota budaya ini dengan panduan eksklusif kami, mulai dari destinasi wisata ikonik hingga kuliner lezat. Nikmati setiap momen tanpa kerumitan perencanaan. Jadikan liburanmu di Jogja sempurna bersama kami!
           </p>
         </div>
       </div>
     </section>
     <!-- jumbotron selesai -->
-
     
     <!-- kota -->
     <section id="kota">
       <div class="container col-xxl-8 px-4 py-5">
         <div class="row flex-lg-row align-items-center g-5 py-5">
           <div class="col-10 col-sm-8 col-lg-6">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63245.98371945908!2d110.33364501191079!3d-7.803163419035966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5787bd5b6bc5%3A0x21723fd4d3684f71!2sYogyakarta%2C%20Yogyakarta%20City%2C%20Special%20Region%20of%20Yogyakarta!5e0!3m2!1sen!2sid!4v1701729005127!5m2!1sen!2sid" width="450" height="450" style="border:0; border-radius:5%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe class="shadow" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63245.98371945908!2d110.33364501191079!3d-7.803163419035966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5787bd5b6bc5%3A0x21723fd4d3684f71!2sYogyakarta%2C%20Yogyakarta%20City%2C%20Special%20Region%20of%20Yogyakarta!5e0!3m2!1sen!2sid!4v1701729005127!5m2!1sen!2sid" width="450" height="450" style="border:0; border-radius:5%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
           <div class="col-lg-6">
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Kota Yogyakarta</h1>
@@ -177,7 +178,7 @@ include "koneksi.php";
       <div class="container col-xxl-8 px-4 py-5">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
           <div class="col-10 col-sm-8 col-lg-6">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63230.901311138!2d110.28638461231068!3d-7.90224301465702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a55fed76d37e9%3A0xe79720853fbaadd8!2sBantul%2C%20Bantul%20Regency%2C%20Special%20Region%20of%20Yogyakarta!5e0!3m2!1sen!2sid!4v1701729062224!5m2!1sen!2sid" width="450" height="450" style="border:0; border-radius:5%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe class="shadow" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63230.901311138!2d110.28638461231068!3d-7.90224301465702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a55fed76d37e9%3A0xe79720853fbaadd8!2sBantul%2C%20Bantul%20Regency%2C%20Special%20Region%20of%20Yogyakarta!5e0!3m2!1sen!2sid!4v1701729062224!5m2!1sen!2sid" width="450" height="450" style="border:0; border-radius:5%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
           <div class="col-lg-6">
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Kabupaten Bantul</h1>
@@ -197,7 +198,7 @@ include "koneksi.php";
       <div class="container col-xxl-8 px-4 py-5">
         <div class="row flex-lg-row align-items-center g-5 py-5">
           <div class="col-10 col-sm-8 col-lg-6">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252978.5111884435!2d109.97932464231322!3d-7.812121850491212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7ae554b4872e5d%3A0x3027a76e352bbf0!2sKulon%20Progo%20Regency%2C%20Special%20Region%20of%20Yogyakarta!5e0!3m2!1sen!2sid!4v1701730713884!5m2!1sen!2sid" width="450" height="450" style="border:0; border-radius:5%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        
+            <iframe class="shadow" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252978.5111884435!2d109.97932464231322!3d-7.812121850491212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7ae554b4872e5d%3A0x3027a76e352bbf0!2sKulon%20Progo%20Regency%2C%20Special%20Region%20of%20Yogyakarta!5e0!3m2!1sen!2sid!4v1701730713884!5m2!1sen!2sid" width="450" height="450" style="border:0; border-radius:5%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        
           </div>
           <div class="col-lg-6">
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Kabupaten Kulon Progo</h1>
@@ -217,7 +218,7 @@ include "koneksi.php";
       <div class="container col-xxl-8 px-4 py-5">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
           <div class="col-10 col-sm-8 col-lg-6">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253052.3045222282!2d110.21646063416343!3d-7.6893462907219865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5ee1c5671249%3A0x3027a76e352bc20!2sSleman%20Regency%2C%20Special%20Region%20of%20Yogyakarta!5e0!3m2!1sen!2sid!4v1701731184543!5m2!1sen!2sid" width="450" height="450" style="border:0; border-radius:5%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe class="shadow" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253052.3045222282!2d110.21646063416343!3d-7.6893462907219865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5ee1c5671249%3A0x3027a76e352bc20!2sSleman%20Regency%2C%20Special%20Region%20of%20Yogyakarta!5e0!3m2!1sen!2sid!4v1701731184543!5m2!1sen!2sid" width="450" height="450" style="border:0; border-radius:5%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
           <div class="col-lg-6">
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Kabupaten Sleman</h1>
@@ -237,7 +238,7 @@ include "koneksi.php";
       <div class="container col-xxl-8 px-4 py-5">
         <div class="row flex-lg-row align-items-center g-5 py-5">
           <div class="col-10 col-sm-8 col-lg-6">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252867.79581504792!2d110.41712000447941!3d-7.9928123800935476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7bb3a693c3d897%3A0x3027a76e352bc10!2sGunung%20Kidul%20Regency%2C%20Special%20Region%20of%20Yogyakarta!5e0!3m2!1sen!2sid!4v1701731563665!5m2!1sen!2sid" width="450" height="450" style="border:0; border-radius:5%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe class="shadow" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252867.79581504792!2d110.41712000447941!3d-7.9928123800935476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7bb3a693c3d897%3A0x3027a76e352bc10!2sGunung%20Kidul%20Regency%2C%20Special%20Region%20of%20Yogyakarta!5e0!3m2!1sen!2sid!4v1701731563665!5m2!1sen!2sid" width="450" height="450" style="border:0; border-radius:5%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
           <div class="col-lg-6">
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Kabupaten Gunung Kidul</h1>
