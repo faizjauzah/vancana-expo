@@ -56,9 +56,9 @@ include "koneksi.php";
               <a class="nav-link dropdown-stick" href="#kulonprogo" role="button" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Kulon Progo</a>
                 <ul class="dropdown-menu gap-1 p-2 rounded-3 mx-0 shadow w-220px" aria-labelledby="navbarDropdownMenuLink">
                   <li><a class="dropdown-item rounded-2 active" href="kulon_progo.php">Pergi ke halaman</a></li>
-                  <li><a class="dropdown-item rounded-2" href="kulon_progo#destinasi">Destinasi</a></li>
-                  <li><a class="dropdown-item rounded-2" href="kulon_progo#kuliner">Kuliner</a></li>
-                  <li><a class="dropdown-item rounded-2" href="kulon_progo#hotel">Hotel</a></li>
+                  <li><a class="dropdown-item rounded-2" href="kulon_progo.php#destinasi">Destinasi</a></li>
+                  <li><a class="dropdown-item rounded-2" href="kulon_progo.php#kuliner">Kuliner</a></li>
+                  <li><a class="dropdown-item rounded-2" href="kulon_progo.php#hotel">Hotel</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item rounded-2" href="https://www.google.com/maps/place/Kulon+Progo+Regency,+Special+Region+of+Yogyakarta/@-7.8121219,109.9793246,11z/data=!3m1!4b1!4m6!3m5!1s0x2e7ae554b4872e5d:0x3027a76e352bbf0!8m2!3d-7.8266798!4d110.1640846!16zL20vMDN4NGZr?entry=ttu" target="_blank">Maps</a></li>
                 </ul>
@@ -68,9 +68,9 @@ include "koneksi.php";
               <a class="nav-link dropdown-stick" href="#sleman" role="button" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Sleman</a>
                 <ul class="dropdown-menu gap-1 p-2 rounded-3 mx-0 shadow w-220px" aria-labelledby="navbarDropdownMenuLink">
                   <li><a class="dropdown-item rounded-2 active" href="sleman.php">Pergi ke halaman</a></li>
-                  <li><a class="dropdown-item rounded-2" href="sleman#destinasi">Destinasi</a></li>
-                  <li><a class="dropdown-item rounded-2" href="sleman#kuliner">Kuliner</a></li>
-                  <li><a class="dropdown-item rounded-2" href="sleman#hotel">Hotel</a></li>
+                  <li><a class="dropdown-item rounded-2" href="sleman.php#destinasi">Destinasi</a></li>
+                  <li><a class="dropdown-item rounded-2" href="sleman.php#kuliner">Kuliner</a></li>
+                  <li><a class="dropdown-item rounded-2" href="sleman.php#hotel">Hotel</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item rounded-2" href="https://www.google.com/maps/place/Sleman+Regency,+Special+Region+of+Yogyakarta/@-7.6893463,110.2164606,11z/data=!3m1!4b1!4m6!3m5!1s0x2e7a5ee1c5671249:0x3027a76e352bc20!8m2!3d-7.7325213!4d110.402376!16s%2Fg%2F11b_2jgvc4?entry=ttu" target="_blank">Maps</a></li>
                 </ul>
@@ -80,9 +80,9 @@ include "koneksi.php";
               <a class="nav-link dropdown-stick" href="#gunungkidul" role="button" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Gunung Kidul</a>
                 <ul class="dropdown-menu gap-1 p-2 rounded-3 mx-0 shadow w-220px" aria-labelledby="navbarDropdownMenuLink">
                   <li><a class="dropdown-item rounded-2 active" href="gunung_kidul.php">Pergi ke halaman</a></li>
-                  <li><a class="dropdown-item rounded-2" href="gunung_kidul#destinasi">Destinasi</a></li>
-                  <li><a class="dropdown-item rounded-2" href="gunung_kidul#kuliner">Kuliner</a></li>
-                  <li><a class="dropdown-item rounded-2" href="gunung_kidul#hotel">Hotel</a></li>
+                  <li><a class="dropdown-item rounded-2" href="gunung_kidul.php#destinasi">Destinasi</a></li>
+                  <li><a class="dropdown-item rounded-2" href="gunung_kidul.php#kuliner">Kuliner</a></li>
+                  <li><a class="dropdown-item rounded-2" href="gunung_kidul.php#hotel">Hotel</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item rounded-2" href="https://www.google.com/maps/place/Gunung+Kidul+Regency,+Special+Region+of+Yogyakarta/@-7.9928124,110.41712,11z/data=!3m1!4b1!4m6!3m5!1s0x2e7bb3a693c3d897:0x3027a76e352bc10!8m2!3d-8.0305091!4d110.6168921!16s%2Fm%2F027g3sd?entry=ttu" target="_blank">Maps</a></li>
                 </ul>
@@ -172,9 +172,10 @@ include "koneksi.php";
                 $result = mysqli_query($conn, "SELECT * FROM `destinasi` WHERE wilayah_destinasi = 'Gunung Kidul'");
                 $numCards = mysqli_num_rows($result);
 
-                // Calculate the number of slides needed
-                $numSlides = ceil($numCards / 3);
-                for ($i = 0; $i < $numSlides; $i++) {
+                if ($numCards > 0) {
+                  // Calculate the number of slides needed
+                  $numSlides = ceil($numCards / 3);
+                  for ($i = 0; $i < $numSlides; $i++) {
               ?>
                 
                 <div class="carousel-item <?php echo $i === 0 ? 'active' : ''; ?>">
@@ -217,6 +218,11 @@ include "koneksi.php";
                 </div>
               <?php
               }
+            } else {
+              // Display a message when there is no data
+              echo '<p class="display-6" align="center">Maaf, data tidak ada.</p>';
+              echo '<img src="img/undraw_empty_re_opql.svg" style="height: 30vh; margin-left:auto; margin-right:auto; display:block;" loading="lazy">';
+          }
               ?>
 
             </div>
@@ -266,23 +272,41 @@ include "koneksi.php";
                 $result = mysqli_query($conn, "SELECT * FROM `kuliner` WHERE wilayah_kuliner = 'Gunung Kidul'");
                 $numCards = mysqli_num_rows($result);
 
-                // Calculate the number of slides needed
-                $numSlides = ceil($numCards / 3);
-                for ($i = 0; $i < $numSlides; $i++) {
+                if ($numCards > 0) {
+                  // Calculate the number of slides needed
+                  $numSlides = ceil($numCards / 3);
+                  for ($i = 0; $i < $numSlides; $i++) {
               ?>
                 
                 <div class="carousel-item <?php echo $i === 0 ? 'active' : ''; ?>">
                   <div class="row justify-content-center">
                     <?php
                     for ($j = 0; $j < 3 && $row = mysqli_fetch_array($result, MYSQLI_ASSOC); $j++) {
+                      $collapseIdK = "collapseWidthExample_" . ($i * 3 + $j + 1); // Unique identifier for each card
                     ?>
                       <div class="col-md-3 mb-3">
                         <div class="card mb-3 shadow-sm">
                           <img src="./img/<?php echo $row['gambar_kuliner']; ?>" class="card-img-top" alt="..." style="height: 200px;"/>
                           <div class="card-body">
                             <h5 class="card-title"><?php echo $row['nama_kuliner']; ?></h5>
-                            <p class="card-text">
-                              <?php echo $row['isi_kuliner'];?>
+                            <p class="card-text mb-0">
+                              <?php
+                              // Display a limited amount of text
+                              $limitedText = substr($row['isi_kuliner'], 0, 200);
+                              echo $limitedText;
+
+                              // Add "..." if the text is truncated
+                              if (strlen($row['isi_kuliner']) > 200) {
+                                echo '...';
+                              }
+                              ?>
+                              
+                              <div class="collapse mb-3" id="<?php echo $collapseIdK; ?>">
+                                <?php echo substr($row['isi_kuliner'], 200); ?>
+                              </div>
+                              <div class="d-grid gap-2">
+                                <button class="btn btn-link btn-sm mt-3 mb-0" type="button" data-bs-toggle="collapse" data-bs-target="#<?php echo $collapseIdK; ?>" aria-expanded="false" aria-controls="<?php echo $collapseIdK; ?>">Read more</button>
+                              </div>
                             </p>
                             <ul class="list-group">
                               <li class="list-group-item">Harga mulai dari <span class="fw-bold"><?php echo $row['harga_kuliner'];?></span></li>
@@ -297,6 +321,11 @@ include "koneksi.php";
                 </div>
               <?php
               }
+            } else {
+              // Display a message when there is no data
+              echo '<p class="display-6" align="center">Maaf, data tidak ada.</p>';
+              echo '<img src="img/undraw_empty_re_opql.svg" style="height: 30vh; margin-left:auto; margin-right:auto; display:block;" loading="lazy">';
+          }
               ?>
 
             </div>
@@ -351,9 +380,10 @@ include "koneksi.php";
                   $result = mysqli_query($conn, "SELECT * FROM `hotel`  WHERE bintang_hotel = 'Bintang 5' && wilayah_hotel = 'Gunung Kidul'");
                   $numCards = mysqli_num_rows($result);
 
-                  // Calculate the number of slides needed
-                  $numSlides = ceil($numCards / 3);
-                  for ($i = 0; $i < $numSlides; $i++) {
+                  if ($numCards > 0) {
+                    // Calculate the number of slides needed
+                    $numSlides = ceil($numCards / 3);
+                    for ($i = 0; $i < $numSlides; $i++) {
                 ?>
                   
                   <div class="carousel-item <?php echo $i === 0 ? 'active' : ''; ?>">
@@ -384,6 +414,11 @@ include "koneksi.php";
                   </div>
                 <?php
                 }
+              } else {
+                // Display a message when there is no data
+                echo '<p class="display-6" align="center">Maaf, data tidak ada.</p>';
+                echo '<img src="img/undraw_empty_re_opql.svg" style="height: 30vh; margin-left:auto; margin-right:auto; display:block;" loading="lazy">';
+            }
                 ?>
 
               </div>
@@ -424,9 +459,10 @@ include "koneksi.php";
                   $result = mysqli_query($conn, "SELECT * FROM `hotel`  WHERE bintang_hotel = 'Bintang 4' && wilayah_hotel = 'Gunung Kidul'");
                   $numCards = mysqli_num_rows($result);
 
-                  // Calculate the number of slides needed
-                  $numSlides = ceil($numCards / 3);
-                  for ($i = 0; $i < $numSlides; $i++) {
+                  if ($numCards > 0) {
+                    // Calculate the number of slides needed
+                    $numSlides = ceil($numCards / 3);
+                    for ($i = 0; $i < $numSlides; $i++) {
                 ?>
                   
                   <div class="carousel-item <?php echo $i === 0 ? 'active' : ''; ?>">
@@ -457,6 +493,11 @@ include "koneksi.php";
                   </div>
                 <?php
                 }
+              } else {
+                // Display a message when there is no data
+                echo '<p class="display-6" align="center">Maaf, data tidak ada.</p>';
+                echo '<img src="img/undraw_empty_re_opql.svg" style="height: 30vh; margin-left:auto; margin-right:auto; display:block;" loading="lazy">';
+            }
                 ?>
 
               </div>
@@ -493,9 +534,10 @@ include "koneksi.php";
                   $result = mysqli_query($conn, "SELECT * FROM `hotel`  WHERE bintang_hotel = 'Bintang 3' && wilayah_hotel = 'Gunung Kidul'");
                   $numCards = mysqli_num_rows($result);
 
-                  // Calculate the number of slides needed
-                  $numSlides = ceil($numCards / 3);
-                  for ($i = 0; $i < $numSlides; $i++) {
+                  if ($numCards > 0) {
+                    // Calculate the number of slides needed
+                    $numSlides = ceil($numCards / 3);
+                    for ($i = 0; $i < $numSlides; $i++) {
                 ?>
                   
                   <div class="carousel-item <?php echo $i === 0 ? 'active' : ''; ?>">
@@ -526,6 +568,11 @@ include "koneksi.php";
                   </div>
                 <?php
                 }
+              } else {
+                // Display a message when there is no data
+                echo '<p class="display-6" align="center">Maaf, data tidak ada.</p>';
+                echo '<img src="img/undraw_empty_re_opql.svg" style="height: 30vh; margin-left:auto; margin-right:auto; display:block;" loading="lazy">';
+            }
                 ?>
 
               </div>
@@ -560,7 +607,7 @@ include "koneksi.php";
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Kota</a></li>
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Bantul</a></li>
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Kulon Progo</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Gunung Kidul</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Sleman</a></li>
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Gunung Kidul</a></li>
             </ul>
           </div>
@@ -571,7 +618,7 @@ include "koneksi.php";
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Kota</a></li>
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Bantul</a></li>
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Kulon Progo</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Gunung Kidul</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Sleman</a></li>
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Gunung Kidul</a></li>
             </ul>
           </div>
@@ -582,7 +629,7 @@ include "koneksi.php";
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Kota</a></li>
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Bantul</a></li>
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Kulon Progo</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Gunung Kidul</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Sleman</a></li>
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Gunung Kidul</a></li>
             </ul>
           </div>
